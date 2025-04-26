@@ -257,7 +257,8 @@
       position: absolute;
       left: 0;
       max-width: 320px;
-      padding: 18px;
+      height: auto;
+      padding: 16px;
       margin: 5px;
       background-color: white;
       border-radius: 10px;
@@ -278,12 +279,13 @@
     .quote p {
       font-size: 0.9rem;
       line-height: 1.6;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
     
     .quote-author {
       font-weight: 600;
       font-size: 0.8rem;
+      text-align: end;
     }
     
     .cta-buttons {
@@ -314,6 +316,13 @@
       display: flex;
       align-items: center;
       gap: 8px;
+      text-decoration: none;
+    }
+    
+    .btn2 a{
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 500;
     }
     
     .btn-primary {
@@ -334,13 +343,18 @@
       border: 1px solid #ddd;
     }
     
+    .btn-secondary a{
+      color: #222;
+      text-decoration: none;
+    }
+    
     .btn-secondary:hover {
       border-color: #FF7A3D;
       color: #FF7A3D;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
     }
-    
+
     /* 3D elements container */
     .scene-container {
       position: absolute;
@@ -527,18 +541,18 @@
   
   <header>
     <div class="container header-container">
-      <a href="#" class="logo">
+      <a href="/home" class="logo">
         <div class="logo-circle">PF</div>
         PortFolio
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="#home.ejs" class="active">Home</a></li>
-          <li><a href="#about.ejs">About</a></li>
-          <li><a href="#services.ejs">Service</a></li>
-          <li><a href="#projects.ejs">Project</a></li>
-          <li><a href="#">Contact</a></li>
-          <button class="btn2 btn-primary">Download CV</button>
+          <li><a href="/home" class="active">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/services">Service</a></li>
+          <li><a href="/projects2">Project</a></li>
+          <li><a href='/contact'>Contact</a></li>
+          <button class="btn2 btn-primary"><a href="https://drive.google.com/file/d/11Jjf01KfjCcVjTg8vvnr21RwGEqIdUuD/view?usp=sharing" target="_blank">Download CV</a></button>
         </ul>
       </nav>
     </div>
@@ -564,17 +578,17 @@
               <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </button>
-          <button class="btn btn-secondary">Hire me</button>
+          <button class="btn btn-secondary"><a href="mailto:rushikeshsawarkar14@gmail.com">Hire me</a></button>
         </div>
         
         <div class="stats">
           <div class="stat-item">
             <!-- <div class="rating">★★★★★</div> -->
-            <span class="stat-number">10</span>
+            <span class="stat-number">03+</span>
             <span class="stat-text">Years Experience</span>
           </div>
           <div class="stat-item">
-            <span class="stat-number">150+</span>
+            <span class="stat-number">15+</span>
             <span class="stat-text">Projects Completed</span>
           </div>
           <div class="stat-item">
@@ -586,10 +600,10 @@
       
       <div class="hero-image">
         <div class="image-circle"></div>
-        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" alt="Designer at work">
+          <img src="https://i.ibb.co/nM4FWPHd/rishi.jpg" alt="rishi">
         <div class="quote">
-          <p>"Jenny's exceptional product design ensures our website's success. Highly Recommended"</p>
-          <div class="quote-author">— ClientName, CEO</div>
+          <p>"Either you run the day, or the day runs you."</p>
+          <div class="quote-author">— Jim Rohn</div>
         </div>
       </div>
     </div>
