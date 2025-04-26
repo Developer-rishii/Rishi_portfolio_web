@@ -1,0 +1,344 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        h2 {
+            text-align: center;
+            text-decoration: underline #FF7A3D;
+            margin: 20px;
+            }
+
+            h2:hover,
+            h2.active {
+            color: #000000;
+            font-weight: bold;
+        }
+        /* Services Section */
+        .section {
+            padding: 5rem 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #636e72;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #6c5ce7, #fd79a8);            
+            z-index: 2;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #FF7A3D;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: #636e72;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-count {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+            /* Floating elements */
+    .floating-shape {
+      position: absolute;
+      z-index: 1;
+      opacity: 0.6;
+      filter: blur(1px);
+    }
+    
+    .shape7 {
+      top: 290%;
+      left: 10%;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 122, 61, 0.3);
+      border-radius: 12px;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .shape8 {
+      top: 355%;
+      left: 70%;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(255, 122, 61, 0.2);
+      border-radius: 6px;
+      transform: rotate(45deg);
+      animation: float 7s ease-in-out infinite;
+    }
+    .shape9 {
+      top: 350%;
+      left: 20%;
+      width: 30px;
+      height: 30px;
+      background-color: rgba(255, 122, 61, 0.2);
+      border-radius: 6px;
+      transform: rotate(45deg);
+      animation: float 7s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0px) rotate(0deg);
+      }
+      50% {
+        transform: translateY(-20px) rotate(5deg);
+      }
+      100% {
+        transform: translateY(0px) rotate(0deg);
+      }
+    }
+    
+        
+    </style>
+    <body>
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="section-title">
+            <h2>My Services</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales</p>
+        </div>
+        <div class="scene-contain" id="scene-contain"></div>
+
+        <div class="floating-shape shape7"></div>
+        <div class="floating-shape shape8"></div>
+        <div class="floating-shape shape9"></div>
+        <div class="services-grid">
+            <div class="service-card fade-in">
+                <div class="service-icon">
+                    <i class="fas fa-pencil-ruler"></i>
+                </div>
+                <h3>UI/UX Design</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate.</p>
+                <div class="service-count">7</div>
+            </div>
+            <div class="service-card fade-in" style="animation-delay: 0.2s;">
+                <div class="service-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Web Design</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate.</p>
+                <div class="service-count">13</div>
+            </div>
+            <div class="service-card fade-in" style="animation-delay: 0.4s;">
+                <div class="service-icon">
+                    <i class="fas fa-object-group"></i>
+                </div>
+                <h3>Landing Page</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate.</p>
+                <div class="service-count">4</div>
+            </div>
+        </div>
+    </section>
+    <script> 
+        // Initialize Three.js scene
+        const container = document.getElementById('scene-contain');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setClearColor(0x000000, 0);
+        container.appendChild(renderer.domElement);
+        
+        // Create 3D floating objects
+        const geometry1 = new THREE.SphereGeometry(0.5, 32, 32);
+        const geometry2 = new THREE.TorusGeometry(0.3, 0.1, 16, 100);
+        const geometry3 = new THREE.TetrahedronGeometry(0.4);
+        
+        const material1 = new THREE.MeshBasicMaterial({ color: 0xFF7A3D, wireframe: true });
+        const material2 = new THREE.MeshBasicMaterial({ color: 0xFF7A3D, wireframe: true });
+        const material3 = new THREE.MeshBasicMaterial({ color: 0xFF7A3D, transparent: true, opacity: 0.5 });
+        
+        const sphere = new THREE.Mesh(geometry1, material1);
+        const torus = new THREE.Mesh(geometry2, material2);
+        const tetrahedron = new THREE.Mesh(geometry3, material3);
+        
+        sphere.position.set(-5, 2, -5);
+        torus.position.set(5, -2, -7);
+        tetrahedron.position.set(0, 3, -6);
+        
+        scene.add(sphere);
+        scene.add(torus);
+        scene.add(tetrahedron);
+        
+        camera.position.z = 5;
+        
+        // Animation function
+        function animate() {
+          requestAnimationFrame(animate);
+          
+          sphere.rotation.x += 0.003;
+          sphere.rotation.y += 0.005;
+          
+          torus.rotation.x += 0.005;
+          torus.rotation.z += 0.003;
+          
+          tetrahedron.rotation.x += 0.004;
+          tetrahedron.rotation.y += 0.002;
+          
+          renderer.render(scene, camera);
+        }
+        
+        animate();
+        
+        // Resize handler
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        // Custom cursor
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        document.addEventListener('mousemove', (e) => {
+          cursor.style.left = e.clientX + 'px';
+          cursor.style.top = e.clientY + 'px';
+          
+          cursorFollower.style.left = e.clientX + 'px';
+          cursorFollower.style.top = e.clientY + 'px';
+        });
+        
+        document.addEventListener('mousedown', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(0.7)';
+          cursorFollower.style.transform = 'translate(-50%, -50%) scale(2)';
+        });
+        
+        document.addEventListener('mouseup', () => {
+          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+          cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+        
+        // GSAP animations
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Animate the title
+        gsap.to('.section-title', {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          ease: 'power3.out'
+        });
+        
+        // Animate the about section
+        gsap.to('.about', {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          delay: 0.3,
+          ease: 'power3.out'
+        });
+        
+        // Parallax effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+          const mouseX = e.clientX / window.innerWidth - 0.5;
+          const mouseY = e.clientY / window.innerHeight - 0.5;
+          
+          sphere.position.x = -5 + mouseX * 2;
+          sphere.position.y = 2 - mouseY * 2;
+          
+          torus.position.x = 5 - mouseX * 3;
+          torus.position.y = -2 + mouseY * 3;
+          
+          tetrahedron.position.x = mouseX * 4;
+          tetrahedron.position.y = 3 - mouseY * 4;
+          
+          gsap.to('.floating-shape.shape4', {
+            x: mouseX * 40,
+            y: mouseY * 40,
+            duration: 1
+          });
+          
+          gsap.to('.floating-shape.shape5', {
+            x: -mouseX * 20,
+            y: -mouseY * 20,
+            duration: 1.5
+          });
+          
+          gsap.to('.floating-shape.shape6', {
+            x: mouseX * 30,
+            y: -mouseY * 30,
+            duration: 1.2
+          });
+        });
+        
+        // Scroll animations
+        ScrollTrigger.create({
+          trigger: ".about",
+          start: "top 80%",
+          onEnter: () => {
+            gsap.to(".prof-img", {
+              rotation: 5,
+              y: -10,
+              duration: 1,
+              ease: "elastic.out(1, 0.5)"
+            });
+          }
+        });
+      </script>
+    </body>
+    </html>

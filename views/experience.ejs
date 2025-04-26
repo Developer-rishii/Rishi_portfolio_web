@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+        h2 {
+            text-align: center;
+            text-decoration: underline #FF7A3D;
+            margin: 20px;
+            }
+
+            h2:hover,
+            h2.active {
+            color: #000000;
+            font-weight: bold;
+        }
+        /* Experience Section */
+        .section {
+            padding: 5rem 5%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #636e72;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #ff7a3d80;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -12px;
+            background-color: white;
+            border: 4px solid #ff7a3d80;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: white;
+            position: relative;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #6c5ce7;
+        }
+        
+        .timeline-content h4 {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            color: #fd79a8;
+        }
+        
+        .timeline-content p {
+            color: #636e72;
+            line-height: 1.6;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: #2d3436;
+            margin-bottom: 0.5rem;
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            background-color: #f5f6fa;
+            border-radius: 50px;
+        }
+        
+</style>
+<body>
+        <!-- Experience Section -->
+        <section class="section" id="experience">
+            <div class="section-title">
+                <h2>My Work Experience</h2>
+                <p>Here's a timeline of my professional journey in the design industry</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item left fade-in">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sep 2016 - July 2020</span>
+                        <h3>Experience Designer</h3>
+                        <h4>Cognizant, Mumbai</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales</p>
+                    </div>
+                </div>
+                <div class="timeline-item right fade-in" style="animation-delay: 0.2s;">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sep 2020 - July 2023</span>
+                        <h3>UI/UX Designer</h3>
+                        <h4>Sugee Pvt limited, Mumbai</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales</p>
+                    </div>
+                </div>
+                <div class="timeline-item left fade-in" style="animation-delay: 0.4s;">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Sep 2023 - Present</span>
+                        <h3>Lead UX Designer</h3>
+                        <h4>Cinetstox, Mumbai</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+</body>
+</html>

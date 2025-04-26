@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+ 
+        /* AI Chat Interface */
+        .ai-chat-container {
+            background-color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-top: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .ai-chat-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .ai-icon {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .ai-chat-title {
+            font-size: 1.5rem;
+            color: var(--dark);
+        }
+        
+        .ai-chat-messages {
+            height: 300px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background-color: var(--light);
+            border-radius: 10px;
+        }
+        
+        .ai-message {
+            margin-bottom: 1rem;
+            padding: 0.8rem 1rem;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        
+        .ai-message.user {
+            background-color: var(--primary);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 0;
+        }
+        
+        .ai-message.bot {
+            background-color: #e0e0e0;
+            color: var(--dark);
+            margin-right: auto;
+            border-bottom-left-radius: 0;
+        }
+        
+        .ai-chat-input {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .ai-chat-input input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+        
+        .ai-chat-input button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .ai-chat-input button:hover {
+            background-color: #5649c5;
+        }
+</style>
+<body>
+       <!-- AI Chat Integration -->
+       <section class="section" id="ai">
+        <div class="section-title">
+            <h2>AI Design Assistant</h2>
+            <p>Chat with my AI assistant to learn more about my work process</p>
+        </div>
+        <div class="ai-chat-container fade-in">
+            <div class="ai-chat-header">
+                <div class="ai-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3 class="ai-chat-title">Design Assistant</h3>
+            </div>
+            <div class="ai-chat-messages" id="aiChatMessages">
+                <div class="ai-message bot">
+                    Hello! I'm an AI assistant that can tell you more about John's design process, experience, and services. How can I help you today?
+                </div>
+            </div>
+            <div class="ai-chat-input">
+                <input type="text" id="aiChatInput" placeholder="Ask me about design services...">
+                <button id="aiChatSend"><i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </section>
+</body>
+
+<script>
+     
+     // AI Chat Integration
+        const aiChatMessages = document.getElementById('aiChatMessages');
+        const aiChatInput = document.getElementById('aiChatInput');
+        const aiChatSend = document.getElementById('aiChatSend');
+        
+        const aiResponses = [
+            "She specializes in creating intuitive user interfaces with a focus on accessibility and user experience.",
+            "She has over 7 years of experience working with companies like Cognizant and SUGee Pvt Limited.",
+            "Her design process begins with thorough user research, followed by prototyping and usability testing.",
+            "Her services include UI/UX design, web design, and landing page creation.",
+            "She has completed over 450 projects for clients across various industries.",
+            "Her stays updated with the latest design trends and tools to deliver modern solutions.",
+            "Her approach combines aesthetic appeal with functional design to create optimal user experiences."
+        ];
+        
+        const addBotMessage = (message) => {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('ai-message', 'bot');
+            messageElement.textContent = message;
+            aiChatMessages.appendChild(messageElement);
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+        };
+        
+        const addUserMessage = (message) => {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('ai-message', 'user');
+            messageElement.textContent = message;
+            aiChatMessages.appendChild(messageElement);
+            aiChatMessages.scrollTop = aiChatMessages.scrollHeight;
+        };
+        
+        const handleAiResponse = (userInput) => {
+            addUserMessage(userInput);
+            
+            // Simple response logic - in a real implementation, you'd connect to an AI API
+            setTimeout(() => {
+                const randomResponse = aiResponses[Math.floor(Math.random() * aiResponses.length)];
+                addBotMessage(randomResponse);
+            }, 1000);
+        };
+        
+        aiChatSend.addEventListener('click', () => {
+            const message = aiChatInput.value.trim();
+            if (message) {
+                handleAiResponse(message);
+                aiChatInput.value = '';
+            }
+        });
+        
+        aiChatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                const message = aiChatInput.value.trim();
+                if (message) {
+                    handleAiResponse(message);
+                    aiChatInput.value = '';
+                }
+            }
+        });
+</script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    body {
+      background-color: #fafafa;
+      color: #222;
+      overflow-x: hidden;
+      width: 100%;
+      height: 100vh;
+    }
+    
+    h2 {
+    text-align: center;
+    text-decoration: underline #FF7A3D;
+    margin: 20px;
+    }
+
+    .projects{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin: 20px;
+    }
+    .pro-img{
+        width: 400px;
+        height: 200px;
+        background-color: #dadada;
+        border-radius: 20px;
+        margin-top: 20px;
+    }
+    h2:hover,
+    h2.active {
+    color: #000000;
+    font-weight: bold;
+    }
+
+    .prjct-sectn{
+        display: flex;
+        justify-content: center;
+    }
+
+</style>
+<body>
+    <h2>My Projects</h2>
+    <div class="prjct-sectn">
+        <div class="projects">
+            <div class="pro-img">
+                <img src="./images/rishi.jpg" alt="xyz">
+            </div>
+        </div>
+        <div class="projects">
+            <div class="pro-img">
+                <img src="./images/rishi.jpg" alt="xyz">
+            </div>
+        </div>
+        <div class="projects">
+            <div class="pro-img">
+                <img src="./images/rishi.jpg" alt="xyz">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
