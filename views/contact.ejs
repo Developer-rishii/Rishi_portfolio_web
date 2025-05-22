@@ -158,6 +158,56 @@
             width: 400px;
             height: 400px;
         }
+
+        
+        /* Responsive for tablets and smaller devices */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+                gap: 2rem;
+            }
+
+            .contact-info,
+            .contact-form {
+                width: 100%;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .contact-info h3 {
+                font-size: 1.3rem;
+            }
+
+            .contact-text h4 {
+                font-size: 1rem;
+            }
+
+            .form-group {
+                margin-bottom: 0.5rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.5rem;
+            }
+
+            .submit-btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .contact-shape-1,
+            .contact-shape-2 {
+                display: none;
+            }
+
+            .form-group textarea{
+                min-height: 100px;
+                resize: vertical;
+            }
+        }
 </style>
 <body>
         <!-- Contact Section -->
