@@ -137,6 +137,47 @@
         transform: translateY(0px) rotate(0deg);
       }
     }
+
+    @media (max-width: 768px) {
+      .about {
+        flex-direction: column;
+        text-align: center;
+        margin: 10px;
+        padding: 10px;
+        height: auto;
+      }
+
+      .prof-img img {
+        width: 90%;
+        height: auto;
+        margin-top: 10px;
+      }
+
+      .prof-info {
+        max-width: 90%;
+        font-size: 1rem;
+        margin-top: 15px;
+      }
+
+      h2 {
+        font-size: 2rem;
+        text-align: center;
+      }
+
+      .scene-contain {
+        height: 40vh;
+      }
+
+      .floating-shape {
+        display: none; /* Hide for simplicity on small screens */
+      }
+
+      .cursor,
+      .cursor-follower {
+        display: none; /* Hide custom cursor on small devices */
+      }
+    }
+
     
 </style>
 <body>
