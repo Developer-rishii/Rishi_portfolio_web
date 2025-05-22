@@ -123,6 +123,49 @@
             background-color: #f5f6fa;
             border-radius: 50px;
         }
+
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .timeline::after {
+                left: 8px;
+                display: none;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 5px;
+                padding-right: 5px;
+                margin-bottom: 2rem;
+            }
+
+            .timeline-item::after {
+                left: 0;
+                right: auto;
+                display: none;
+            }
+
+            .left,
+            .right {
+                left: 0;
+            }
+
+            .right::after {
+                left: 0;
+            }
+
+            .timeline-content {
+                padding: 20px;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 3rem 2%;
+            }
+        }
         
 </style>
 <body>
@@ -135,25 +178,28 @@
             <div class="timeline">
                 <div class="timeline-item left fade-in">
                     <div class="timeline-content">
-                        <span class="timeline-date">Sep 2016 - July 2020</span>
-                        <h3>Experience Designer</h3>
-                        <h4>Cognizant, Mumbai</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales</p>
+                        <span class="timeline-date">May 2024 - Jul 2024</span>
+                        <h3>Web Development Intern</h3>
+                        <h4>Slash Mark IT Solutions (OPC) Pvt. Ltd</h4>
+                        <p>Dynamic web applications using JavaScript, PHP, Node.js, and PhpMyAdmin. Collaborated on backend development, database management, and API integration. 
+                            Gained hands-on experience in full-stack development within an AICTE-approved internship program.</p>
                     </div>
                 </div>
                 <div class="timeline-item right fade-in" style="animation-delay: 0.2s;">
                     <div class="timeline-content">
-                        <span class="timeline-date">Sep 2020 - July 2023</span>
-                        <h3>UI/UX Designer</h3>
-                        <h4>Sugee Pvt limited, Mumbai</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales</p>
+                        <span class="timeline-date">Sep 2024 - Present</span>
+                        <h3>Technical Team Member</h3>
+                        <h4>Google Developer Student Clubs (GDSC)</h4>
+                        <p>Actively contributing to technical projects and events focused on web development, cloud, and 
+                            open-source technologies. Collaborating with cross-functional teams to build innovative solutions,
+                             mentor peers, and support technical initiatives within the GDSC community.</p>
                     </div>
                 </div>
                 <div class="timeline-item left fade-in" style="animation-delay: 0.4s;">
                     <div class="timeline-content">
                         <span class="timeline-date">Nov 2022 - Present</span>
-                        <h3>Content Creator</h3>
-                        <h4>Wardha, Maharashtra</h4>
+                        <h3>Educational Content Creator</h3>
+                        <h4>Helper YT</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate, bibendum sodales</p>
                     </div>
                 </div>
