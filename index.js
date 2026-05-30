@@ -1,9 +1,11 @@
 const express = require('express')
+const path = require('path')
 const app = express()
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'ejs');
-app.use(express.static(__dirname + '/views'));
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'views')));
 
 app.get('/', (req, res) => {
   res.render("index")
@@ -18,7 +20,12 @@ app.get('/services', (req, res) => res.render('services'));
 app.get('/projects', (req, res) => res.render('projects'));
 app.get('/contact', (req, res) => res.render('contact'));
 
+// Export for Vercel serverless
+module.exports = app;
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
-})
+// Only listen locally (not on Vercel)
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`App listening on port ${port}`)
+  })
+}
