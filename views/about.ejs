@@ -48,6 +48,12 @@
         font-size: 2.5rem;
         margin-bottom: 0.5rem;
         color: black;
+        text-align: center;
+      }
+      
+      #about {
+        margin-top: 80px;
+        scroll-margin-top: 100px;
       }
       
         
@@ -181,12 +187,7 @@
     
 </style>
 <body>
-    <h2>About Me</h2>
-    <div class="scene-contain" id="scene-contain"></div>
-
-    <div class="floating-shape shape4"></div>
-    <div class="floating-shape shape5"></div>
-    <div class="floating-shape shape6"></div>
+    <h2 id="about">About Me</h2>
 
     <div class="about">
         <div class="prof-img">
@@ -199,64 +200,7 @@
         </div>
     </div>
     <script> 
-        // Initialize Three.js scene
-        const container = document.getElementById('scene-contain');
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ alpha: true });
-        
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        renderer.setClearColor(0x000000, 0);
-        container.appendChild(renderer.domElement);
-        
-        // Create 3D floating objects
-        const geometry1 = new THREE.SphereGeometry(0.5, 32, 32);
-        const geometry2 = new THREE.TorusGeometry(0.3, 0.1, 16, 100);
-        const geometry3 = new THREE.TetrahedronGeometry(0.4);
-        
-        const material1 = new THREE.MeshBasicMaterial({ color: 0xFF7A3D, wireframe: true });
-        const material2 = new THREE.MeshBasicMaterial({ color: 0xFF7A3D, wireframe: true });
-        const material3 = new THREE.MeshBasicMaterial({ color: 0xFF7A3D, transparent: true, opacity: 0.5 });
-        
-        const sphere = new THREE.Mesh(geometry1, material1);
-        const torus = new THREE.Mesh(geometry2, material2);
-        const tetrahedron = new THREE.Mesh(geometry3, material3);
-        
-        sphere.position.set(-5, 2, -5);
-        torus.position.set(5, -2, -7);
-        tetrahedron.position.set(0, 3, -6);
-        
-        scene.add(sphere);
-        scene.add(torus);
-        scene.add(tetrahedron);
-        
-        camera.position.z = 5;
-        
-        // Animation function
-        function animate() {
-          requestAnimationFrame(animate);
-          
-          sphere.rotation.x += 0.003;
-          sphere.rotation.y += 0.005;
-          
-          torus.rotation.x += 0.005;
-          torus.rotation.z += 0.003;
-          
-          tetrahedron.rotation.x += 0.004;
-          tetrahedron.rotation.y += 0.002;
-          
-          renderer.render(scene, camera);
-        }
-        
-        animate();
-        
-        // Resize handler
-        window.addEventListener('resize', () => {
-          camera.aspect = window.innerWidth / window.innerHeight;
-          camera.updateProjectionMatrix();
-          renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-        
+    (() => {
         // Custom cursor
         const cursor = document.querySelector('.cursor');
         const cursorFollower = document.querySelector('.cursor-follower');
@@ -299,39 +243,6 @@
           ease: 'power3.out'
         });
         
-        // Parallax effect on mouse move
-        document.addEventListener('mousemove', (e) => {
-          const mouseX = e.clientX / window.innerWidth - 0.5;
-          const mouseY = e.clientY / window.innerHeight - 0.5;
-          
-          sphere.position.x = -5 + mouseX * 2;
-          sphere.position.y = 2 - mouseY * 2;
-          
-          torus.position.x = 5 - mouseX * 3;
-          torus.position.y = -2 + mouseY * 3;
-          
-          tetrahedron.position.x = mouseX * 4;
-          tetrahedron.position.y = 3 - mouseY * 4;
-          
-          gsap.to('.floating-shape.shape4', {
-            x: mouseX * 40,
-            y: mouseY * 40,
-            duration: 1
-          });
-          
-          gsap.to('.floating-shape.shape5', {
-            x: -mouseX * 20,
-            y: -mouseY * 20,
-            duration: 1.5
-          });
-          
-          gsap.to('.floating-shape.shape6', {
-            x: mouseX * 30,
-            y: -mouseY * 30,
-            duration: 1.2
-          });
-        });
-        
         // Scroll animations
         ScrollTrigger.create({
           trigger: ".about",
@@ -345,6 +256,7 @@
             });
           }
         });
+      })();
       </script>
   
 </body>

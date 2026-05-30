@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 
 app.set('view engine', 'ejs');
+app.use(express.static(__dirname + '/views'));
 
 app.get('/', (req, res) => {
   res.render("index")
@@ -15,7 +16,7 @@ app.get('/home', (req, res) => {
 app.get('/about', (req, res) => res.render('about'));
 app.get('/services', (req, res) => res.render('services'));
 app.get('/projects', (req, res) => res.render('projects'));
-app.get('./views/contact', (req, res) => res.render('contact'));
+app.get('/contact', (req, res) => res.render('contact'));
 
 
 app.listen(port, () => {

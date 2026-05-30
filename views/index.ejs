@@ -3,10 +3,74 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>PortXfolio</title>
+    <title>Rushikesh Sawarkar</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <style>
+      /* Preloader Styles */
+      #preloader {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #111;
+        z-index: 999999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.8s ease, visibility 0.8s ease;
+      }
+      .preloader-text {
+        font-family: 'Poppins', sans-serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 4px;
+        margin-bottom: 20px;
+        position: relative;
+        animation: pulseText 2s infinite;
+      }
+      .preloader-text span {
+        color: #FF7A3D;
+      }
+      .loader-line {
+        width: 150px;
+        height: 3px;
+        background-color: rgba(255, 255, 255, 0.1);
+        position: relative;
+        overflow: hidden;
+        border-radius: 3px;
+      }
+      .loader-line::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -50%;
+        width: 50%;
+        height: 100%;
+        background-color: #FF7A3D;
+        animation: loadingLine 1.5s ease-in-out infinite;
+      }
+      @keyframes loadingLine {
+        0% { left: -50%; }
+        100% { left: 100%; }
+      }
+      @keyframes pulseText {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.7; }
+      }
+      body.no-scroll {
+        overflow: hidden;
+      }
+    </style>
   </head>
-  <body>
+  <body class="no-scroll">
+    <!-- Preloader -->
+    <div id="preloader">
+      <div class="preloader-text">Rushikesh <span>Sawarkar</span></div>
+      <div class="loader-line"></div>
+    </div>
 
     <%- include('home'); %>
     <%- include('about'); %>
@@ -19,5 +83,22 @@
     <%- include('theme'); %>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+    <script>
+      // Preloader Script
+      window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        
+        // Add a small delay for aesthetic effect
+        setTimeout(() => {
+          preloader.style.opacity = '0';
+          preloader.style.visibility = 'hidden';
+          document.body.classList.remove('no-scroll');
+          
+          setTimeout(() => {
+            preloader.remove();
+          }, 800);
+        }, 1000);
+      });
+    </script>
   </body>
 </html>

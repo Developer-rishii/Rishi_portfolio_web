@@ -1,34 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rishi- Portfolio</title>
+  <title>Rushikesh Sawarkar</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-    
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
       font-family: 'Poppins', sans-serif;
     }
-    
+
     body {
       background-color: #fafafa;
       color: #222;
       overflow-x: hidden;
     }
-    
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
       padding: 0 20px;
     }
-    
+
     /* Header */
     header {
       position: fixed;
@@ -42,13 +43,13 @@
       backdrop-filter: blur(10px);
       box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
     }
-    
+
     .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
-    
+
     .logo {
       display: flex;
       align-items: center;
@@ -57,12 +58,12 @@
       color: #222;
       text-decoration: none;
     }
-    
+
     .logo span {
       color: #FF7A3D;
       margin-right: 5px;
     }
-    
+
     .logo-circle {
       width: 36px;
       height: 36px;
@@ -83,19 +84,19 @@
     .logo .portfolio-logo:hover {
       color: #FF7A3D;
     }
-    
+
     nav ul {
       display: flex;
       list-style: none;
       gap: 40px;
     }
 
-    .nav-links{
+    .nav-links {
       display: flex;
       align-items: center;
       justify-content: center;
     }
-    
+
     nav ul li a {
       text-decoration: none;
       color: #222;
@@ -103,11 +104,11 @@
       transition: all 0.3s ease;
       position: relative;
     }
-    
+
     nav ul li a:hover {
       color: #FF7A3D;
     }
-    
+
     nav ul li a::after {
       content: '';
       position: absolute;
@@ -118,15 +119,15 @@
       background-color: #FF7A3D;
       transition: width 0.3s ease;
     }
-    
+
     nav ul li a:hover::after {
       width: 100%;
     }
-    
+
     .active {
       color: #FF7A3D;
     }
-    
+
     /* Hero */
     .hero {
       height: 100vh;
@@ -136,7 +137,7 @@
       overflow: hidden;
       margin-top: 20px;
     }
-    
+
     .hero-content {
       width: 100%;
       display: flex;
@@ -145,11 +146,11 @@
       position: relative;
       z-index: 5;
     }
-    
+
     .hero-text {
       max-width: 700px;
     }
-    
+
     .hello-badge {
       display: inline-block;
       padding: 8px 16px;
@@ -162,14 +163,14 @@
       opacity: 0;
       transform: translateY(20px);
     }
-    
+
     .hello-badge::after {
       content: '✨';
       position: absolute;
       right: -20px;
       top: -10px;
     }
-    
+
     .hero-title {
       font-size: 4rem;
       font-weight: 700;
@@ -178,12 +179,12 @@
       opacity: 0;
       transform: translateY(20px);
     }
-    
+
     .hero-title .highlight {
       color: #FF7A3D;
       position: relative;
     }
-    
+
     .hero-title .highlight::before {
       content: '';
       position: absolute;
@@ -196,7 +197,7 @@
       opacity: 0.3;
       z-index: -1;
     }
-    
+
     .hero-desc {
       font-size: 1.1rem;
       color: #666;
@@ -204,20 +205,20 @@
       opacity: 0;
       transform: translateY(20px);
     }
-    
+
     .hero-image {
       position: relative;
       opacity: 1;
       z-index: 10;
     }
-    
+
     .hero-image img {
       width: 300px;
       height: auto;
       border-radius: 50%;
       object-fit: cover;
     }
-    
+
     .image-circle {
       position: absolute;
       width: 450px;
@@ -229,7 +230,7 @@
       transform: translate(-50%, -50%);
       z-index: -1;
     }
-    
+
     .stats {
       display: flex;
       gap: 40px;
@@ -237,30 +238,30 @@
       opacity: 0;
       transform: translateY(20px);
     }
-    
+
     .stat-item {
       display: flex;
       flex-direction: column;
     }
-    
+
     .stat-number {
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 5px;
       color: #222;
     }
-    
+
     .stat-text {
       color: #666;
       font-size: 0.9rem;
     }
-    
+
     .rating {
       color: #FF7A3D;
       font-size: 1.2rem;
       margin-bottom: 10px;
     }
-    
+
     .quote {
       position: absolute;
       left: 0;
@@ -274,7 +275,7 @@
       opacity: 0;
       transform: translateX(-20px);
     }
-    
+
     .quote::before {
       content: '"';
       font-size: 3rem;
@@ -283,19 +284,19 @@
       top: -10px;
       left: 10px;
     }
-    
+
     .quote p {
       font-size: 0.9rem;
       line-height: 1.6;
       margin-bottom: 5px;
     }
-    
+
     .quote-author {
       font-weight: 600;
       font-size: 0.8rem;
       text-align: end;
     }
-    
+
     .cta-buttons {
       display: flex;
       gap: 20px;
@@ -303,7 +304,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
-    
+
     .btn {
       padding: 12px 24px;
       border-radius: 30px;
@@ -314,6 +315,7 @@
       align-items: center;
       gap: 8px;
     }
+
     .btn2 {
       padding: 8px 20px;
       margin: 0;
@@ -326,36 +328,36 @@
       gap: 8px;
       text-decoration: none;
     }
-    
-    .btn2 a{
+
+    .btn2 a {
       text-decoration: none;
       color: #ffffff;
       font-weight: 500;
     }
-    
+
     .btn-primary {
       background-color: #FF7A3D;
       color: white;
       border: none;
     }
-    
+
     .btn-primary:hover {
       background-color: #e86a2d;
       transform: translateY(-3px);
       box-shadow: 0 10px 20px rgba(255, 122, 61, 0.3);
     }
-    
+
     .btn-secondary {
       background-color: transparent;
       color: #222;
       border: 1px solid #ddd;
     }
-    
-    .btn-secondary a{
+
+    .btn-secondary a {
       color: #222;
       text-decoration: none;
     }
-    
+
     .btn-secondary:hover {
       border-color: #FF7A3D;
       color: #FF7A3D;
@@ -372,7 +374,7 @@
       height: 100%;
       z-index: 1;
     }
-    
+
     /* Floating elements */
     .floating-shape {
       position: absolute;
@@ -380,8 +382,8 @@
       opacity: 0.6;
       filter: blur(1px);
     }
-    
-    
+
+
     .shape1 {
       top: 15%;
       left: 10%;
@@ -391,7 +393,7 @@
       border-radius: 12px;
       animation: float 6s ease-in-out infinite;
     }
-    
+
     .shape2 {
       bottom: 20%;
       right: 15%;
@@ -401,7 +403,7 @@
       border-radius: 50%;
       animation: float 8s ease-in-out infinite;
     }
-    
+
     .shape3 {
       top: 60%;
       left: 20%;
@@ -412,19 +414,21 @@
       transform: rotate(45deg);
       animation: float 7s ease-in-out infinite;
     }
-    
+
     @keyframes float {
       0% {
         transform: translateY(0) rotate(0);
       }
+
       50% {
         transform: translateY(-20px) rotate(5deg);
       }
+
       100% {
         transform: translateY(0) rotate(0);
       }
     }
-    
+
     /* Cursor Effect */
     .cursor {
       width: 20px;
@@ -437,7 +441,7 @@
       mix-blend-mode: difference;
       transition: transform 0.1s ease;
     }
-    
+
     .cursor-follower {
       width: 40px;
       height: 40px;
@@ -448,7 +452,7 @@
       z-index: 9998;
       transition: transform 0.2s ease;
     }
-    
+
     /* Scroll Indicator */
     .scroll-indicator {
       position: absolute;
@@ -464,38 +468,43 @@
       opacity: 0.7;
       animation: bounce 2s infinite;
     }
-    
+
     .scroll-indicator svg {
       width: 20px;
       fill: #666;
     }
 
     @keyframes floatImage {
-        0% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-15px);
-        }
-        100% {
-          transform: translateY(0px);
-        }
+      0% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-15px);
+      }
+
+      100% {
+        transform: translateY(0px);
+      }
     }
 
     .hero-image img {
       animation: floatImage 4s ease-in-out infinite;
     }
 
-    
+
     @keyframes bounce {
-      0%, 100% {
+
+      0%,
+      100% {
         transform: translateY(0) translateX(-50%);
       }
+
       50% {
         transform: translateY(10px) translateX(-50%);
       }
     }
-    
+
     /* Responsive */
     @media (max-width: 992px) {
       .hero-content {
@@ -503,25 +512,25 @@
         text-align: center;
         gap: 40px;
       }
-      
+
       .hero-text {
         max-width: 100%;
       }
-      
+
       .stats {
         justify-content: center;
       }
-      
+
       .cta-buttons {
         justify-content: center;
       }
-      
+
       .quote {
         position: relative;
         max-width: 100%;
         margin-top: 30px;
       }
-      
+
       .hero-title {
         font-size: 3rem;
       }
@@ -542,7 +551,8 @@
 
       .hero {
         height: auto;
-        padding: 100px 0 40px; /* Add top padding for fixed header */
+        padding: 100px 0 40px;
+        /* Add top padding for fixed header */
         flex-direction: column;
         align-items: flex-start;
         text-align: center;
@@ -640,7 +650,7 @@
       width: 250px;
       height: 100vh;
       background: white;
-      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
       padding: 30px 20px;
       display: flex;
       flex-direction: column;
@@ -692,75 +702,77 @@
         right: 0%;
       }
     }
-
-
   </style>
 </head>
+
 <body>
   <!-- Sidebar code snippet -->
 
-    <div class="hamburger" onclick="toggleSidebar()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div class="sidebar" id="sidebar">
-      <div class="close-btn" onclick="toggleSidebar()">×</div>
-      <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Projects</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
+  <div class="hamburger" onclick="toggleSidebar()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleSidebar()">×</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
 
 
   <!-- Home section -->
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
-  
+
   <header>
     <div class="container header-container">
       <a href="/home" class="logo">
-        <div class="logo-circle">PF</div>
-        <span class="portfolio-logo">PortFolio</span>
+        <div class="logo-circle">RS</div>
+        <span class="portfolio-logo">Rushikesh Sawarkar</span>
       </a>
       <nav>
         <ul class="nav-links">
-          <li><a href="/home" class="active">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/services">Service</a></li>
-          <li><a href="/projects2">Project</a></li>
-          <li><a href='/contact'>Contact</a></li>
-          <button class="btn2 btn-primary"><a href="https://drive.google.com/file/d/11Jjf01KfjCcVjTg8vvnr21RwGEqIdUuD/view?usp=sharing" target="_blank">Download CV</a></button>
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Service</a></li>
+          <li><a href="#projects">Project</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <button class="btn2 btn-primary"><a href="./pdf/Resume_Rishi.pdf" target="_blank">Download CV</a></button>
         </ul>
       </nav>
     </div>
   </header>
-  
-  <section class="hero">
+
+  <section class="hero" id="home">
     <div class="scene-container" id="scene-container"></div>
-    
+
     <div class="floating-shape shape1"></div>
     <div class="floating-shape shape2"></div>
     <div class="floating-shape shape3"></div>
-    
+
     <div class="container hero-content">
       <div class="hero-text">
         <div class="hello-badge">Hello!</div>
         <h1 class="hero-title">I'm <span class="highlight">Rishi</span>, <br><span id="change">Web Developer</span></h1>
-        <p class="hero-desc">Creating exceptional digital experiences with a focus on user-centered design principles and beautiful aesthetics.</p>
-        
+        <p class="hero-desc">Creating exceptional digital experiences with a focus on user-centered design principles
+          and beautiful aesthetics.</p>
+
         <div class="cta-buttons">
-          <button class="btn btn-primary">
-            Portfolio
+          <button class="btn btn-primary"
+            onclick="window.open('https://wa.me/917972533946?text=Hi,%20i%20am%20reach%20out%20to%20you%20through%20your%20portfolio', '_blank')">
+            WhatsApp
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
             </svg>
           </button>
           <button class="btn btn-secondary"><a href="mailto:rushikeshsawarkar14@gmail.com">Hire me</a></button>
         </div>
-        
+
         <div class="stats">
           <div class="stat-item">
             <!-- <div class="rating">★★★★★</div> -->
@@ -777,126 +789,126 @@
           </div>
         </div>
       </div>
-      
+
       <div class="hero-image">
         <div class="image-circle"></div>
-          <img src="https://i.ibb.co/nM4FWPHd/rishi.jpg" alt="rishi">
+        <img src="https://i.ibb.co/nM4FWPHd/rishi.jpg" alt="rishi">
         <div class="quote">
           <p>"Either you run the day, or the day runs you."</p>
           <div class="quote-author">— Jim Rohn</div>
         </div>
       </div>
     </div>
-    
+
     <div class="scroll-indicator">
       <span>Scroll Down</span>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M12 5v14M5 12l7 7 7-7"/>
+        <path d="M12 5v14M5 12l7 7 7-7" />
       </svg>
     </div>
   </section>
-  
+
   <script>
-      // for text
-        const texts = [
-        "Android Developer",
-        "Java Programmer",
-        "Web Developer"
-        ];
+    // for text
+    const texts = [
+      "Android Developer",
+      "Java Programmer",
+      "Web Developer"
+    ];
 
-        var index = 0;
+    var index = 0;
 
-        function changeText() {
-        const h1 = document.getElementById('change');
-        h1.textContent = texts[index];
-        index = (index + 1) % texts.length;
-        }
+    function changeText() {
+      const h1 = document.getElementById('change');
+      h1.textContent = texts[index];
+      index = (index + 1) % texts.length;
+    }
 
-        setInterval(changeText, 2000);
+    setInterval(changeText, 2000);
 
     // Initialize Three.js scene
     const container = document.getElementById('scene-container');
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ alpha: true });
-    
+
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0);
     container.appendChild(renderer.domElement);
-    
+
     // Create 3D floating objects
     const geometry1 = new THREE.SphereGeometry(0.5, 32, 32);
     const geometry2 = new THREE.TorusGeometry(0.3, 0.1, 16, 100);
     const geometry3 = new THREE.TetrahedronGeometry(0.4);
-    
+
     const material1 = new THREE.MeshBasicMaterial({ color: 0xFF7A3D, wireframe: true });
     const material2 = new THREE.MeshBasicMaterial({ color: 0xFF7A3D, wireframe: true });
     const material3 = new THREE.MeshBasicMaterial({ color: 0xFF7A3D, transparent: true, opacity: 0.5 });
-    
+
     const sphere = new THREE.Mesh(geometry1, material1);
     const torus = new THREE.Mesh(geometry2, material2);
     const tetrahedron = new THREE.Mesh(geometry3, material3);
-    
+
     sphere.position.set(-5, 2, -5);
     torus.position.set(5, -2, -7);
     tetrahedron.position.set(0, 3, -6);
-    
+
     scene.add(sphere);
     scene.add(torus);
     scene.add(tetrahedron);
-    
+
     camera.position.z = 5;
-    
+
     // Animation function
     function animate() {
       requestAnimationFrame(animate);
-      
+
       sphere.rotation.x += 0.003;
       sphere.rotation.y += 0.005;
-      
+
       torus.rotation.x += 0.005;
       torus.rotation.z += 0.003;
-      
+
       tetrahedron.rotation.x += 0.004;
       tetrahedron.rotation.y += 0.002;
-      
+
       renderer.render(scene, camera);
     }
-    
+
     animate();
-    
+
     // Resize handler
     window.addEventListener('resize', () => {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
     });
-    
+
     // Custom cursor
     const cursor = document.querySelector('.cursor');
     const cursorFollower = document.querySelector('.cursor-follower');
-    
+
     document.addEventListener('mousemove', (e) => {
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
-      
+
       cursorFollower.style.left = e.clientX + 'px';
       cursorFollower.style.top = e.clientY + 'px';
     });
-    
+
     document.addEventListener('mousedown', () => {
       cursor.style.transform = 'scale(0.7)';
       cursorFollower.style.transform = 'scale(2)';
     });
-    
+
     document.addEventListener('mouseup', () => {
       cursor.style.transform = 'scale(1)';
       cursorFollower.style.transform = 'scale(1)';
     });
-    
+
     // GSAP animations
     gsap.registerPlugin(ScrollTrigger);
-    
+
     gsap.to('.hello-badge', {
       opacity: 1,
       y: 0,
@@ -904,7 +916,7 @@
       delay: 0.2,
       ease: 'power3.out'
     });
-    
+
     gsap.to('.hero-title', {
       opacity: 1,
       y: 0,
@@ -912,7 +924,7 @@
       delay: 0.4,
       ease: 'power3.out'
     });
-    
+
     gsap.to('.hero-desc', {
       opacity: 1,
       y: 0,
@@ -920,7 +932,7 @@
       delay: 0.6,
       ease: 'power3.out'
     });
-    
+
     gsap.to('.cta-buttons', {
       opacity: 1,
       y: 0,
@@ -928,7 +940,7 @@
       delay: 0.8,
       ease: 'power3.out'
     });
-    
+
     gsap.to('.stats', {
       opacity: 1,
       y: 0,
@@ -936,14 +948,14 @@
       delay: 1,
       ease: 'power3.out'
     });
-    
+
     gsap.to('.hero-image', {
       opacity: 1,
       duration: 1,
       delay: 0.6,
       ease: 'power3.out'
     });
-    
+
     gsap.to('.quote', {
       opacity: 1,
       x: 0,
@@ -951,40 +963,40 @@
       delay: 1.2,
       ease: 'power3.out'
     });
-    
-    
+
+
     // Parallax effect on mouse move
     document.addEventListener('mousemove', (e) => {
       const mouseX = e.clientX / window.innerWidth - 0.5;
       const mouseY = e.clientY / window.innerHeight - 0.5;
-      
+
       sphere.position.x = -5 + mouseX * 2;
       sphere.position.y = 2 - mouseY * 2;
-      
+
       torus.position.x = 5 - mouseX * 3;
       torus.position.y = -2 + mouseY * 3;
-      
+
       tetrahedron.position.x = mouseX * 4;
       tetrahedron.position.y = 3 - mouseY * 4;
-      
+
       gsap.to('.floating-shape.shape1', {
         x: mouseX * 40,
         y: mouseY * 40,
         duration: 1
       });
-      
+
       gsap.to('.floating-shape.shape2', {
         x: -mouseX * 20,
         y: -mouseY * 20,
         duration: 1.5
       });
-      
+
       gsap.to('.floating-shape.shape3', {
         x: mouseX * 30,
         y: -mouseY * 30,
         duration: 1.2
       });
-      
+
       gsap.to('.image-circle', {
         x: mouseX * 20,
         y: mouseY * 20,
@@ -992,10 +1004,10 @@
         ease: 'power1.out'
       });
     });
-    
+
     // Text animation on hover
     const heroTitle = document.querySelector('.hero-title .highlight');
-    
+
     heroTitle.addEventListener('mouseenter', () => {
       gsap.to(heroTitle, {
         scale: 1.05,
@@ -1003,7 +1015,7 @@
         duration: 0.3
       });
     });
-    
+
     heroTitle.addEventListener('mouseleave', () => {
       gsap.to(heroTitle, {
         scale: 1,
@@ -1011,10 +1023,10 @@
         duration: 0.3
       });
     });
-    
+
     // Button animations
     const buttons = document.querySelectorAll('.btn');
-    
+
     buttons.forEach(button => {
       button.addEventListener('mouseenter', () => {
         gsap.to(cursor, {
@@ -1022,7 +1034,7 @@
           duration: 0.3
         });
       });
-      
+
       button.addEventListener('mouseleave', () => {
         gsap.to(cursor, {
           scale: 1,
@@ -1039,4 +1051,5 @@
 
   </script>
 </body>
+
 </html>
