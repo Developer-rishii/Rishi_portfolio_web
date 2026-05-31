@@ -1,6 +1,7 @@
 {
   "name": "portfoliox",
   "version": "1.0.0",
+  "description": "Portfolio frontend — deployed on Vercel",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -10,8 +11,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
+    "dotenv": "^17.4.2",
     "ejs": "^3.1.10",
     "express": "^4.21.2"
   },
