@@ -1,250 +1,350 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    </head>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-        h2 {
-            text-align: center;
-            text-decoration: underline #FF7A3D;
-            margin: 20px;
-            }
-
-            h2:hover,
-            h2.active {
-            color: #000000;
-            font-weight: bold;
-        }
-        /* Services Section */
-        .section {
-            padding: 5rem 5%;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .section-title p {
-            color: #636e72;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background-color: white;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, #6c5ce7, #fd79a8);            
-            z-index: 2;
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            color: #FF7A3D;
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .service-card p {
-            color: #636e72;
-            margin-bottom: 1.5rem;
-        }
-        
-        .service-count {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--accent);
-        }
-
-            /* Floating elements */
-    .floating-shape {
-      position: absolute;
-      z-index: 1;
-      opacity: 0.6;
-      filter: blur(1px);
-    }
-    
-    .shape7 {
-      top: 290%;
-      left: 10%;
-      width: 40px;
-      height: 40px;
-      background-color: rgba(255, 122, 61, 0.3);
-      border-radius: 12px;
-      animation: float 6s ease-in-out infinite;
-    }
-    
-    .shape8 {
-      top: 355%;
-      left: 70%;
-      width: 30px;
-      height: 30px;
-      background-color: rgba(255, 122, 61, 0.2);
-      border-radius: 6px;
-      transform: rotate(45deg);
-      animation: float 7s ease-in-out infinite;
-    }
-    .shape9 {
-      top: 350%;
-      left: 20%;
-      width: 30px;
-      height: 30px;
-      background-color: rgba(255, 122, 61, 0.2);
-      border-radius: 6px;
-      transform: rotate(45deg);
-      animation: float 7s ease-in-out infinite;
+    /* ===== Services Section ===== */
+    .services-section {
+        padding: 6rem 5%;
+        position: relative;
+        overflow: hidden;
+        background: #fafafa;
     }
 
-    @keyframes float {
-      0% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-20px) rotate(5deg);
-      }
-      100% {
-        transform: translateY(0px) rotate(0deg);
-      }
+    .services-section .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        position: relative;
+        z-index: 2;
     }
-    
-        
-    </style>
-    <body>
-    <!-- Services Section -->
-    <section class="section" id="services">
-        <div class="section-title">
-            <h2>My Services</h2>
-            <p>Offering web development, app development, UI/UX design, and technical consulting services to help businesses grow and innovate digitally.</p>
+
+    .services-section .section-badge {
+        display: inline-block;
+        padding: 8px 20px;
+        background: rgba(255, 122, 61, 0.1);
+        color: #FF7A3D;
+        border-radius: 30px;
+        font-weight: 500;
+        font-size: 0.9rem;
+        margin-bottom: 16px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+
+    .services-section .section-header h2 {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: #222;
+        margin-bottom: 1rem;
+        text-decoration: none;
+    }
+
+    .services-section .section-header p {
+        color: #636e72;
+        max-width: 560px;
+        margin: 0 auto;
+        font-size: 1.05rem;
+        line-height: 1.7;
+    }
+
+    /* ===== Services Grid — Bento Layout ===== */
+    .services-bento {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+        gap: 24px;
+        max-width: 1100px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+    }
+
+    /* ===== Service Card ===== */
+    .svc-card {
+        background: #fff;
+        border-radius: 20px;
+        padding: 36px 32px 32px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+        transition: transform 0.4s cubic-bezier(.25,.46,.45,.94), box-shadow 0.4s ease;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        min-height: 220px;
+    }
+
+    .svc-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(255, 122, 61, 0.12), 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    /* Gradient top bar */
+    .svc-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background: linear-gradient(90deg, #FF7A3D, #FF9A5C, #FFB87A);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+    }
+
+    .svc-card:hover::before {
+        opacity: 1;
+    }
+
+    /* Large watermark number */
+    .svc-number {
+        position: absolute;
+        top: -8px;
+        right: 16px;
+        font-size: 7rem;
+        font-weight: 800;
+        color: rgba(255, 122, 61, 0.06);
+        line-height: 1;
+        pointer-events: none;
+        transition: color 0.4s ease;
+        user-select: none;
+    }
+
+    .svc-card:hover .svc-number {
+        color: rgba(255, 122, 61, 0.1);
+    }
+
+    /* Icon circle */
+    .svc-icon-wrap {
+        width: 56px;
+        height: 56px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, rgba(255,122,61,0.12), rgba(255,122,61,0.04));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        transition: background 0.4s ease, transform 0.4s ease;
+    }
+
+    .svc-card:hover .svc-icon-wrap {
+        background: linear-gradient(135deg, #FF7A3D, #FF9A5C);
+        transform: scale(1.05);
+    }
+
+    .svc-icon-wrap i {
+        font-size: 1.5rem;
+        color: #FF7A3D;
+        transition: color 0.4s ease;
+    }
+
+    .svc-card:hover .svc-icon-wrap i {
+        color: #fff;
+    }
+
+    /* Card text */
+    .svc-card h3 {
+        font-size: 1.35rem;
+        font-weight: 600;
+        color: #222;
+        margin-bottom: 10px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .svc-card p {
+        font-size: 0.95rem;
+        color: #636e72;
+        line-height: 1.65;
+        position: relative;
+        z-index: 1;
+        margin: 0;
+        flex-grow: 1;
+    }
+
+
+
+    /* ===== Background Decorations ===== */
+    .svc-bg-shape {
+        position: absolute;
+        border-radius: 50%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .svc-bg-shape-1 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(255,122,61,0.06) 0%, transparent 70%);
+        top: -80px;
+        left: -100px;
+    }
+
+    .svc-bg-shape-2 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, rgba(255,122,61,0.05) 0%, transparent 70%);
+        bottom: -60px;
+        right: -80px;
+    }
+
+    .svc-bg-shape-3 {
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, rgba(255,154,92,0.05) 0%, transparent 70%);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 992px) {
+        .services-bento {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+
+
+        .services-section .section-header h2 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .services-section {
+            padding: 4rem 5%;
+        }
+
+        .services-bento {
+            grid-template-columns: 1fr;
+        }
+
+        .services-section .section-header h2 {
+            font-size: 1.9rem;
+        }
+
+        .svc-card {
+            padding: 28px 24px 24px;
+        }
+
+        .svc-number {
+            font-size: 5rem;
+        }
+    }
+</style>
+<body>
+
+<!-- Services Section -->
+<section class="services-section" id="services">
+    <!-- Background shapes -->
+    <div class="svc-bg-shape svc-bg-shape-1"></div>
+    <div class="svc-bg-shape svc-bg-shape-2"></div>
+    <div class="svc-bg-shape svc-bg-shape-3"></div>
+
+    <!-- Header -->
+    <div class="section-header">
+        <div class="section-badge">What I Offer</div>
+        <h2>My Services</h2>
+        <p>End-to-end development solutions — from intelligent AI integrations to polished mobile apps — built to scale your business.</p>
+    </div>
+
+    <!-- Top Row (3 cards) -->
+    <div class="services-bento">
+        <div class="svc-card" id="svc-chatbots">
+            <span class="svc-number">01</span>
+            <div class="svc-icon-wrap">
+                <i class="fas fa-robot"></i>
+            </div>
+            <h3>AI Chatbots</h3>
+            <p>Smart chatbots for your website and WhatsApp that actually help customers 24/7.</p>
         </div>
-        <div class="services-grid">
-            <div class="service-card fade-in">
-                <div class="service-icon">
-                    <i class="fas fa-pencil-ruler"></i>
-                </div>
-                <h3>UI/UX Design</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate.</p>
-                <div class="service-count">7</div>
+
+        <div class="svc-card" id="svc-automation">
+            <span class="svc-number">02</span>
+            <div class="svc-icon-wrap">
+                <i class="fas fa-gears"></i>
             </div>
-            <div class="service-card fade-in" style="animation-delay: 0.2s;">
-                <div class="service-icon">
-                    <i class="fas fa-laptop-code"></i>
-                </div>
-                <h3>Web Design</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate.</p>
-                <div class="service-count">13</div>
-            </div>
-            <div class="service-card fade-in" style="animation-delay: 0.4s;">
-                <div class="service-icon">
-                    <i class="fas fa-object-group"></i>
-                </div>
-                <h3>Landing Page</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis lacus nunc, posuere in justo vulputate.</p>
-                <div class="service-count">4</div>
-            </div>
+            <h3>Automation</h3>
+            <p>Automate repetitive tasks — emails, reports, data entry, workflows.</p>
         </div>
-    </section>
-    <script> 
-    (() => {
-        // Custom cursor
-        const cursor = document.querySelector('.cursor');
-        const cursorFollower = document.querySelector('.cursor-follower');
-        
-        document.addEventListener('mousemove', (e) => {
-          cursor.style.left = e.clientX + 'px';
-          cursor.style.top = e.clientY + 'px';
-          
-          cursorFollower.style.left = e.clientX + 'px';
-          cursorFollower.style.top = e.clientY + 'px';
-        });
-        
-        document.addEventListener('mousedown', () => {
-          cursor.style.transform = 'translate(-50%, -50%) scale(0.7)';
-          cursorFollower.style.transform = 'translate(-50%, -50%) scale(2)';
-        });
-        
-        document.addEventListener('mouseup', () => {
-          cursor.style.transform = 'translate(-50%, -50%) scale(1)';
-          cursorFollower.style.transform = 'translate(-50%, -50%) scale(1)';
-        });
-        
-        // GSAP animations
-        gsap.registerPlugin(ScrollTrigger);
-        
-        // Animate the title
-        gsap.to('.section-title', {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: 'power3.out'
-        });
-        
-        // Animate the about section
-        gsap.to('.about', {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          delay: 0.3,
-          ease: 'power3.out'
-        });
-        
-        // Scroll animations
-        ScrollTrigger.create({
-          trigger: ".about",
-          start: "top 80%",
-          onEnter: () => {
-            gsap.to(".prof-img", {
-              rotation: 5,
-              y: -10,
-              duration: 1,
-              ease: "elastic.out(1, 0.5)"
-            });
-          }
-        });
-      })();
-      </script>
-    </body>
-    </html>
+
+        <div class="svc-card" id="svc-webapps">
+            <span class="svc-number">03</span>
+            <div class="svc-icon-wrap">
+                <i class="fas fa-laptop-code"></i>
+            </div>
+            <h3>Web Apps</h3>
+            <p>Fast, modern web applications built with React and Node.js.</p>
+        </div>
+
+        <div class="svc-card" id="svc-mobileapps">
+            <span class="svc-number">04</span>
+            <div class="svc-icon-wrap">
+                <i class="fas fa-mobile-screen-button"></i>
+            </div>
+            <h3>Mobile Apps</h3>
+            <p>Android and iOS apps using React Native. One codebase, both platforms.</p>
+        </div>
+
+        <div class="svc-card" id="svc-desktop">
+            <span class="svc-number">05</span>
+            <div class="svc-icon-wrap">
+                <i class="fas fa-desktop"></i>
+            </div>
+            <h3>Desktop Software</h3>
+            <p>Custom desktop applications for Windows.</p>
+        </div>
+
+        <div class="svc-card" id="svc-uiux">
+            <span class="svc-number">06</span>
+            <div class="svc-icon-wrap">
+                <i class="fas fa-pencil-ruler"></i>
+            </div>
+            <h3>UI/UX Designing</h3>
+            <p>Intuitive, user-centered interfaces designed to delight users and drive engagement.</p>
+        </div>
+    </div>
+</section>
+
+<script>
+(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Animate section header
+    gsap.from('.services-section .section-header', {
+        y: 40,
+        opacity: 0,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.services-section',
+            start: 'top 80%',
+            toggleActions: 'play none none none'
+        }
+    });
+
+    // Animate all cards with stagger
+    gsap.from('.services-bento .svc-card', {
+        y: 60,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.15,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: '.services-bento',
+            start: 'top 85%',
+            toggleActions: 'play none none none'
+        }
+    });
+})();
+</script>
+</body>
+</html>

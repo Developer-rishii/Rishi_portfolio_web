@@ -538,8 +538,9 @@
 
     @media (max-width: 768px) {
       .header-container {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
         padding: 0 20px;
       }
 
@@ -631,8 +632,9 @@
     .hamburger {
       display: none;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       cursor: pointer;
+      z-index: 1100;
     }
 
     .hamburger span {
@@ -640,6 +642,7 @@
       height: 3px;
       background: #222;
       border-radius: 3px;
+      transition: all 0.3s ease;
     }
 
     /* Sidebar */
@@ -649,13 +652,14 @@
       left: -100%;
       width: 250px;
       height: 100vh;
-      background: white;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 2px 0 20px rgba(0, 0, 0, 0.15);
       padding: 30px 20px;
       display: flex;
       flex-direction: column;
-      transition: left 0.3s ease;
-      z-index: 999;
+      transition: left 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 2000;
     }
 
     .sidebar ul {
@@ -673,6 +677,7 @@
       color: #222;
       font-weight: 500;
       font-size: 1.1rem;
+      transition: color 0.3s ease;
     }
 
     .sidebar ul li a:hover {
@@ -687,6 +692,12 @@
       font-size: 2rem;
       cursor: pointer;
       align-self: flex-end;
+      color: #222;
+      transition: color 0.3s ease;
+    }
+
+    .close-btn:hover {
+      color: #FF7A3D;
     }
 
     /* Responsive behavior */
@@ -696,10 +707,7 @@
       }
 
       .hamburger {
-        display: block;
-        position: absolute;
-        top: 1%;
-        right: 0%;
+        display: flex;
       }
     }
   </style>
@@ -708,17 +716,13 @@
 <body>
   <!-- Sidebar code snippet -->
 
-  <div class="hamburger" onclick="toggleSidebar()">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
   <div class="sidebar" id="sidebar">
     <div class="close-btn" onclick="toggleSidebar()">×</div>
     <ul>
       <li><a href="#home">Home</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#services">Service</a></li>
+      <li><a href="#projects">Project</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </div>
@@ -744,6 +748,11 @@
           <button class="btn2 btn-primary"><a href="./pdf/Resume_Rishi.pdf" target="_blank">Download CV</a></button>
         </ul>
       </nav>
+      <div class="hamburger" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </header>
 
@@ -1047,6 +1056,13 @@
     function toggleSidebar() {
       document.getElementById('sidebar').classList.toggle('active');
     }
+
+    // Close sidebar when clicking any navigation link
+    document.querySelectorAll('.sidebar ul li a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('sidebar').classList.remove('active');
+      });
+    });
 
 
   </script>
